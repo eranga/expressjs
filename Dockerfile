@@ -1,17 +1,19 @@
 
 FROM node:slim
 
-RUN mkdir -p expressApp
-WORKDIR expressApp
+RUN mkdir -p /usr/src/expressApp
+WORKDIR /usr/src/expressApp
 
-ADD . expressApp
+ADD . /usr/src/expressApp
 
-RUN cd expressApp
+RUN cd /usr/src/expressApp
 
 RUN npm install
 
 EXPOSE 3000
 
-RUN node app.js
+#CMD ["pwd"] 
+CMD ["node","app.js"] 
+#RUN node app.js
 
 
